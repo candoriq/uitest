@@ -91,17 +91,26 @@ This table should contain the columns:
 
 Seed the two given users into the user_api table. Assign the manager profile to David and the admin profile to Emma.
 
-Add a new tab to the app’s side-panel called Users. This new Users page should have a table containing current users’ names and their corresponding profiles. 
+Add a new Users tab in the app’s side panel. This tab should let you:
 
-The page should also contain a button to add new users. Clicking the button should open a modal containing a form. 
+   - View a list of existing users.
+   - Create new users for employees (only employees can become users).
+   - Select and create multiple users at once.
 
-At the top of the create new users form, add a dropdown for Profile, with the options admin and manager.
-Beneath, render a checklist containing all employees that do not currently have a user_api record. You will have to query the new user_api table and employees table to obtain this list. 
-Finally, add a Submit button at the bottom. 
+When the form is submitted, create the new users and update the corresponding records in the employees table with their newly assigned user IDs. 
 
-When the form is submitted, create new users and save the ids of the newly created users in the employees table.
+**Bonus**
 
-**Bonus 1**
+Now, we want to alter the access policies we outlined in the previous phase.
 
-Now, we want to alter the access policies we outlined in the previous phase. Admin users should see all employees and jobs, regardless of the management hierarchy, while manager users should obey the rules outlined in Phase 1.
+- **Admins**
+  - Can view all employees and jobs (no hierarchy restrictions).
+  - Have access to the **Users** tab.
+  - Can create new users.
 
+- **Managers**
+  - Must follow hierarchy-based access rules from Phase 1.
+  - No access to the **Users** tab.
+  - Cannot create new users.
+
+These rules must be enforced both in the **UI** and at the **API level**.
