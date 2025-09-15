@@ -30,6 +30,7 @@ CREATE TABLE public.employees (
     email public.email,
     department_id uuid NOT NULL,
     job_id uuid NOT NULL,
+    user_api_id uuid,
     constraint employees_pkey primary key (id),
     constraint employees_department_id_fkey foreign key (department_id) references departments (id),
     constraint employees_job_id_fkey foreign key (job_id) references jobs (id),
